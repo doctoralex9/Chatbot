@@ -15,17 +15,11 @@ system_prompt = "You are a helpful assistant that helps people debug their code.
 user_prompt = input("What's your question ? ")
 
 #5th variable "chat_completion", passing to OpenAI's API, my system_promt and my user_prompt
-chat_completion = client.chat.completions.create(
-    #1st parameter
-    messages =[
-        {"role": "system", "content": system_prompt},
-        {"role": "user", "content": user_prompt} 
-    ],
-
-    #2nd parameter
-    model = "gpt-5"
+chat_completion = client.responses.create(
+    
+    model="gpt-4o-mini",
+    tools=[{"type": "web_search_preview"}],
+    input= user_prompt
 ) 
 
-#6th variable "response_text"
-response_text = chat_completion.choices[0].message.content
-print(response_text)
+print(chat_completion.output_text)  
