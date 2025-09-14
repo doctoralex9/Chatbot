@@ -9,7 +9,7 @@ load_dotenv()
 #1st variable: "client", 2nd variable: "api_key"
 client = OpenAI(api_key = os.environ["API_KEY"])
 
-#2nd variable: "system_prompt"
+#3nd variable: "system_prompt"
 system_prompt = "You are a helpful assistant that helps people debug their code."
 if prompt := st.chat_input("What's your coding question?"):  # ← Replaces our old input("user_prompt")
     # Display user message in UI
