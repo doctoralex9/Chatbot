@@ -57,7 +57,7 @@ for c in chats.data:
     with st.expander("⚙️ Manage this chat"):
         if st.button("❌ Delete", key=f"delete_{c['id']}"):
             supabase.table("chat_history").delete().eq("id", c["id"]).execute()
-            st.experimental_rerun()
+            st.rerun()
         if st.button("✏️ Update (test)", key=f"update_{c['id']}"):
             supabase.table("chat_history").update({"response": "Updated answer"}).eq("id", c["id"]).execute()
-            st.experimental_rerun()
+            st.rerun()
